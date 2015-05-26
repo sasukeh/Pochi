@@ -1,3 +1,9 @@
+"----------------------------------------
+"
+"  sasukeh's .vimrc
+"
+"----------------------------------------
+
 " neobundle settings {{{
 if has('vim_starting')
   set nocompatible
