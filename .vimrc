@@ -15,12 +15,17 @@ NeoBundleFetch 'plasticboy/vim-markdown'
 NeoBundleFetch 'kannokanno/previm'
 NeoBundleFetch 'tyru/open-browser.vim'
 NeoBundleFetch 'scrooloose/nerdtree'
-
+NeoBundleFetch 'itchyny/lightline.vim'
+NeoBundleFetch 'tpope/vim-fugitive'
+NeoBundleFetch 'airblade/vim-gitgutter'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'airblade/vim-gitgutter'
 " vimrc に記述されたプラグインでインストールされていないものがないかチェックする
 NeoBundleCheck
 call neobundle#end()
@@ -31,4 +36,9 @@ syntax on
 colorscheme blue
 
 set number
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
+set directory=~/.vim/tmp
+set backupdir=~/.vim/tmp
+set undodir=~/.vim/tmp
+
+source ~/.vim/lightline
+source ~/.vim/keybind
