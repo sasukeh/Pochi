@@ -40,52 +40,55 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'editorconfig/editorconfig-vim'
-
 " vimrc に記述されたプラグインでインストールされていないものがないかチェックする
 NeoBundleCheck
 call neobundle#end()
 filetype plugin indent on
 set t_Co=256
 syntax on
-" colorscheme jellybeans
+ colorscheme jellybeans
 " colorscheme blue
 
 "set dir
 set directory=~/.vim/tmp
 set backupdir=~/.vim/tmp
 set undodir=~/.vim/tmp
-
 " set display
+set autoindent
 set number
 set showmode 
 set title 
 set ruler 
 set showcmd
 set showmatch 
-set laststatus=2 
-set number
-set tabstop=2
-set autoindent
-set expandtab
+set softtabstop=2
 set shiftwidth=2
+set laststatus=2 
+set tabstop=2
+set expandtab
+set tabstop<
+set ignorecase          " 大文字小文字を区別しない
+set smartcase           " 検索文字に大文字がある場合は大文字小文字を区別
+set incsearch           " インクリメンタルサーチ
+set hlsearch            " 検索マッチテキストをハイライト (2013-07-03 14:30 修正）
+
+" バックスラッシュやクエスチョンを状況に合わせ自動的にエスケープ
 " au
 au BufRead,BufNewFile *.md set filetype=markdown
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
 
 "--let settings
 let g:previm_open_cmd = 'firefox &'
 let g:vim_markdown_folding_disabled=1
-let g:indent_guides_auto_colors = 0
+let g:indent_guides_auto_colors = 1
 
 "--- hi
-hi IndentGuidesOdd  ctermbg=black
-hi IndentGuidesEven ctermbg=darkgrey
-hi IndentGuidesOdd  guibg=red   ctermbg=3
-hi IndentGuidesEven guibg=green ctermbg=4
+
 
 "-- nnoremap 
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
+cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
+inoremap jj <Esc> " 素早くjx2でescと同じ効果
 
 "---------- source settings
 source ~/.vim/lightline
